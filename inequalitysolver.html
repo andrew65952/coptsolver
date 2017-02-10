@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>Inequality Theorom Solver</title>
+<style>
+  * {
+    color: #0066cc;
+  }
+  
+  p {
+   color: black; 
+  }
+  
+  p[id=answer] {
+    color: white;
+  }
+  
+  p u {
+    color: black;
+  }
+  
+  input[type=text]{
+    background-color: #b3d9ff;
+    border-radius: 4px;
+  }
+  
+  input[type=submit]{
+    border-radius: 10px;
+    border: 2px solid #1a8cff;
+    background-color: #4da6ff;
+  }
+  
+  div[id=main] {
+    overflow: hidden;
+    margin: 5px;
+    width: 250px;
+    height: 330px;
+    border: 2px dotted #1a8cff;
+    border-radius: 5px;
+  }
+  
+  div[id=main] * {
+    margin: 0px 0px 0px 5px;
+  }
+</style>
+</head>
+<body style="background-color: #99ccff">
+  <div id="main">
+  <p><u>Info:</u> Put in the values and press Submit</p>
+  <div style="border: dashed 2px black; border-radius: 4px; width: 220px;">
+  a<sup>2</sup>
+  <br>
+  <input type="text" id="a" placeholder="example: 15.87">
+  <br>
+  b<sup>2</sup>
+  <br>
+  <input type="text" id="b" placeholder="example: 10">
+  <br>
+  c<sup>2</sup>
+  <br>
+  <input type="text" id="c" placeholder="example: 25 (c must be biggest)">
+  <br>
+  <input type="submit" id="submit" onclick="run()">
+  By: andrew65952
+  </div>
+  <br>
+  <br>
+  <p id="answer" style="background-color: #4da6ff; width: 100px; height: 100px; border: solid 2px #1a8cff; border-radius: 4px;">Answer: <br></p>
+  
+  </div>
+<script>
+window.addEventListener("keydown",check);
+
+function check(e) {
+  if (e.keyCode == "13") {
+    run()
+  }
+}
+function run() {
+  var a = document.getElementById("a").value;
+  var b = document.getElementById("b").value;
+  var c = document.getElementById("c").value;
+  a = a**2;
+  b = b**2;
+  c = c**2;
+  var one = a + b;
+  var two = c;
+  document.getElementById("answer").innerHTML = "Answer: <br>";
+  if (one > two) {
+    document.getElementById("answer").innerHTML += "a+b ? c<br>" + one + " > " + two + "<br>Acute Triangle";
+  } else if (one < two) {
+    document.getElementById("answer").innerHTML += "a+b ? c<br>" + one + " < " + two + "<br>Obtuse Triangle";
+  } else {
+    document.getElementById("answer").innerHTML += "a+b ? c<br>" + one + " = " + two + "<br>Right Triangle";
+  }
+}
+</script>
+</body>
+</html>
